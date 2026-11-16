@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="查閱英雄聯盟世界賽系列賽結果，依年度、戰隊與賽事階段篩選。"
+  >
+  <title>英雄聯盟世界賽對局紀錄站</title>
+  <link rel="stylesheet" href="./assets/style.css">
+  <script src="./assets/app.js" defer></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">跳至主要內容</a>
+
+  <header class="hero">
+    <div class="container">
+      <p class="eyebrow">LEAGUE OF LEGENDS · WORLDS ARCHIVE</p>
+      <h1>世界賽對局紀錄站</h1>
+      <p class="hero-description">
+        回顧世界賽的精彩對決，查閱各年度淘汰賽系列賽結果。
+      </p>
+      <span class="badge">非官方賽事整理網站</span>
+    </div>
+  </header>
+
+  <main id="main-content" class="container">
+    <section class="panel" aria-labelledby="filter-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">MATCH RECORDS</p>
+          <h2 id="filter-title">查詢對局紀錄</h2>
+        </div>
+        <p>每筆紀錄代表一個系列賽，而非其中的單局。</p>
+      </div>
+
+      <div class="filters">
+        <div class="field">
+          <label for="year-filter">年度</label>
+          <select id="year-filter"></select>
+        </div>
+
+        <div class="field">
+          <label for="team-filter">戰隊</label>
+          <select id="team-filter">
+            <option value="">全部戰隊</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="stage-filter">賽事階段</label>
+          <select id="stage-filter">
+            <option value="">全部階段</option>
+            <option value="八強">八強</option>
+            <option value="四強">四強</option>
+            <option value="決賽">決賽</option>
+          </select>
+        </div>
+
+        <button id="reset-button" type="button">重設篩選</button>
+      </div>
+
+      <div class="dataset-info">
+        <p>收錄範圍：<span id="scope-text">讀取中</span></p>
+        <p>資料檔更新日期：<span id="updated-text">—</span></p>
+      </div>
+
+      <p id="status-message" class="status" role="status" aria-live="polite">
+        正在讀取賽事資料……
+      </p>
+
+      <div
+        id="table-region"
+        class="table-wrap"
+        role="region"
+        aria-label="對局紀錄表，可左右捲動"
+        tabindex="0"
+        hidden
+      >
+        <table>
+          <caption class="sr-only">世界賽系列賽結果</caption>
+          <thead>
+            <tr>
+              <th scope="col">日期</th>
+              <th scope="col">階段</th>
+              <th scope="col">戰隊 A</th>
+              <th scope="col">比分</th>
+              <th scope="col">戰隊 B</th>
+              <th scope="col">勝方</th>
+              <th scope="col">確認狀態</th>
+              <th scope="col">來源</th>
+            </tr>
+          </thead>
+          <tbody id="matches-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel notes" aria-labelledby="notes-title">
+      <h2 id="notes-title">關於本站資料</h2>
+      <ul>
+        <li>初版以 2026 年世界賽淘汰賽為收錄目標，不包含瑞士輪。</li>
+        <li>系列賽比分代表雙方贏得的局數，不是擊殺數。</li>
+        <li>未核對的紀錄會標示「待確認」；缺少的欄位顯示「暫無資料」。</li>
+        <li>日期維持資料來源的日期標示，不另行轉換時區。</li>
+        <li>資料檔更新日期不代表所有紀錄都已完成核對。</li>
+        <li>各筆紀錄的來源連結將列於表格中。</li>
+      </ul>
+      <noscript>
+        <p>此網站需要啟用 JavaScript，才能讀取並篩選賽事紀錄。</p>
+      </noscript>
+    </section>
+  </main>
+
+  <footer class="container footer">
+    <p>英雄聯盟世界賽對局紀錄站｜課程小專案</p>
+    <p>本站與 Riot Games 無官方關聯。</p>
+  </footer>
+</body>
+</html>
